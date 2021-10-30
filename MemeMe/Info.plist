@@ -45,8 +45,6 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Please allow acces the camera to take a picture</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -68,5 +66,9 @@
 	<array>
 		<string>impact.ttf</string>
 	</array>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Please allow acces the library to save a picture</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Please allow acces the camera to take a picture</string>
 </dict>
 </plist>

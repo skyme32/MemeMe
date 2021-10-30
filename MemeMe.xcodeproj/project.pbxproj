@@ -13,7 +13,7 @@
 		48FA914A272D893400E7099D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48FA9148272D893400E7099D /* Main.storyboard */; };
 		48FA914C272D893500E7099D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48FA914B272D893500E7099D /* Assets.xcassets */; };
 		48FA914F272D893500E7099D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48FA914D272D893500E7099D /* LaunchScreen.storyboard */; };
-		48FA9160272DB65A00E7099D /* impact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 48FA915F272DB65A00E7099D /* impact.ttf */; };
+		48FA9162272DE99F00E7099D /* impact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 48FA9161272DE99F00E7099D /* impact.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		48FA914B272D893500E7099D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48FA914E272D893500E7099D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		48FA9150272D893500E7099D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		48FA915F272DB65A00E7099D /* impact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = impact.ttf; path = ../../../../Downloads/impact.ttf; sourceTree = "<group>"; };
+		48FA9161272DE99F00E7099D /* impact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = impact.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +73,7 @@
 		48FA915D272DB63900E7099D /* font */ = {
 			isa = PBXGroup;
 			children = (
-				48FA915F272DB65A00E7099D /* impact.ttf */,
+				48FA9161272DE99F00E7099D /* impact.ttf */,
 			);
 			path = font;
 			sourceTree = "<group>";
@@ -135,7 +135,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48FA9160272DB65A00E7099D /* impact.ttf in Resources */,
+				48FA9162272DE99F00E7099D /* impact.ttf in Resources */,
 				48FA914F272D893500E7099D /* LaunchScreen.storyboard in Resources */,
 				48FA914C272D893500E7099D /* Assets.xcassets in Resources */,
 				48FA914A272D893400E7099D /* Main.storyboard in Resources */,

@@ -4,9 +4,19 @@
 //
 //  Created by skyme32 on 30/10/21.
 //
+// Source ICON: https://www.flaticon.es/icono-gratis/memes_5247390?term=meme&page=1&position=7&page=1&position=7&related_id=5247390&origin=search
 
 import UIKit
 
+
+
+// MARK: - Meme Structure
+struct Meme {
+    var topText: String
+    var bottomText: String
+    var originalImage: UIImage?
+    var memedImage: UIImage?
+}
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
@@ -25,18 +35,23 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextFiled: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
+    @IBOutlet weak var navBar: UIToolbar!
+    @IBOutlet weak var toolbar: UIToolbar!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
     
     
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Style textfields and control the camera exist
         styleTextField(textField: topTextFiled, message: TEXT_TOP)
         styleTextField(textField: bottomTextField, message: TEXT_BOTTOM)
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        statuShareButton()
         subscribeToKeyboardNotifications()
     }
     
@@ -67,13 +82,69 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
         
     
-    // MARK: Actions Camera & Library
+    // MARK: Actions Camera/Library & Share/Cancel
     @IBAction func pickAnImage(_ sender: Any) {
         showImagePickerController(sourceType: .photoLibrary)
     }
     
     @IBAction func cmaeraAnImage(_ sender: Any) {
         showImagePickerController(sourceType: .camera)
+    }
+    
+    @IBAction func shareAction(_ sender: Any) {
+        let activityController = UIActivityViewController(activityItems: [generateMemedImage()], applicationActivities: nil)
+        activityController.completionWithItemsHandler = { activity, completed, items, error in
+            if completed {
+                self.save()
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+        present(activityController, animated: true, completion: nil)
+    }
+    
+    @IBAction func cancelAction(_ sender: Any) {
+        self.topTextFiled.text = TEXT_TOP
+        self.bottomTextField.text = TEXT_BOTTOM
+        self.imagePicker.image = nil
+        statuShareButton()
+    }
+    
+    
+    // MARK: Save the image
+    func save() {
+        // Generated the meme
+        let memedImage = generateMemedImage()
+        
+        // Create the meme
+        _ = Meme(topText: topTextFiled.text!, bottomText: bottomTextField.text!, originalImage: imagePicker.image!, memedImage: memedImage)
+    }
+    
+    func generateMemedImage() -> UIImage {
+        // Hide toolbar and navbar
+        navBar.isHidden = true
+        toolbar.isHidden = true
+
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        // Show toolbar and navbar
+        navBar.isHidden = false
+        toolbar.isHidden = false
+
+        return memedImage
+    }
+    
+    
+    // MARK: Status the shareButton
+    private func statuShareButton() {
+        if imagePicker.image == nil {
+            shareButton.isEnabled = false
+        } else {
+            shareButton.isEnabled = false
+        }
     }
 }
 
@@ -91,6 +162,7 @@ extension ViewController: UIImagePickerControllerDelegate & UINavigationControll
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             imagePicker.image = image
+            shareButton.isEnabled = true
         }
         dismiss(animated: true, completion: nil)
     }
