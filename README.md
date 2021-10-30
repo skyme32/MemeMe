@@ -15,4 +15,6 @@ With this first version of MemeMe, students will create an app that enables a us
 
 # Capture
 
+<img src="https://github.com/skyme32/MemeMe/blob/main/capture/Simulator%20Screen%20Shot%20-%20iPod%20touch%20(7th%20generation)%20-%202021-10-30%20at%2017.45.21.png" width="200" height="400" />
+
 # License
