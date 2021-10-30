@@ -1,4 +1,5 @@
-# MemeMe
+![Drag Racing](https://github.com/skyme32/MemeMe/blob/main/MemeMe/Assets.xcassets/AppIcon.appiconset/Icon-Small%402x-1.png)
+# MemeMe 1.0
 With this first version of MemeMe, students will create an app that enables a user to take a picture, and add text at the top and bottom to form a meme. The user will be able to share the photo on Facebook and Twitter and also by SMS or email.
 
 # Why this project?
@@ -19,5 +20,4 @@ With this first version of MemeMe, students will create an app that enables a us
 
 # Pictures Source
 - Find the image icon Artist: https://www.flaticon.es/icono-gratis/memes_5247390?term=meme&page=1&position=7&page=1&position=7&related_id=5247390&origin=search
-
-
+- Version: 1.0
