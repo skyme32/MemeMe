@@ -11,6 +11,7 @@ class ViewController: UIViewController {
 
     // MARK: IBOutlet properties
     @IBOutlet weak var imagePicker: UIImageView!
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
     
     
     // MARK: Lifecycle
@@ -18,18 +19,30 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    @IBAction func pickAnImage(_ sender: Any) {
-        showImagePickerController()
+    override func viewWillAppear(_ animated: Bool) {
+        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
     }
+    
+    
+    // MARK: Actions Camera & Library
+    @IBAction func pickAnImage(_ sender: Any) {
+        showImagePickerController(sourceType: .photoLibrary)
+    }
+    
+    @IBAction func cmaeraAnImage(_ sender: Any) {
+        showImagePickerController(sourceType: .camera)
+    }
+    
     
 }
 
 // MARK: Control Picker controller
 extension ViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
-    func showImagePickerController() {
+    func showImagePickerController(sourceType: UIImagePickerController.SourceType) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
+        imagePicker.sourceType = sourceType
         present(imagePicker, animated: true, completion: nil)
     }
     
@@ -44,52 +57,3 @@ extension ViewController: UIImagePickerControllerDelegate & UINavigationControll
         dismiss(animated: true, completion: nil)
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
