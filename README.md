@@ -14,10 +14,10 @@ With this first version of MemeMe, students will create an app that enables a us
 - Mastering UKit fundamentals frees a developer up to learn model-oriented skills like networking and persistence.
 
 # Capture
-<img src="https://github.com/skyme32/MemeMe/blob/main/capture/Simulator%20Screen%20Shot%20-%20iPod%20touch%20(7th%20generation)%20-%202021-10-30%20at%2017.45.21.png" width="200" height="400" />
+<img src="https://github.com/skyme32/MemeMe/blob/main/capture/Simulator_screen_meme.png" width="200" height="400" />
+<img src="https://github.com/skyme32/MemeMe/blob/main/capture/Simulator_screen_share.png" width="200" height="400" />
 
 # Pictures Source
 - Find the image icon Artist: https://www.flaticon.es/icono-gratis/memes_5247390?term=meme&page=1&position=7&page=1&position=7&related_id=5247390&origin=search
 
-# License
 
