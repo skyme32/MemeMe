@@ -7,6 +7,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="impact.ttf">
+            <string>Impact</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -42,24 +47,48 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QMH-a2-tU1">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QMH-a2-tU1">
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" systemColor="systemOrangeColor"/>
                                 <directionalEdgeInsets key="directionalLayoutMargins" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
                             </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vX6-wx-uKZ">
+                                <rect key="frame" x="20" y="96" width="374" height="32"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ObH-EG-Gkc">
+                                <rect key="frame" x="20" y="729" width="374" height="32"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="QMH-a2-tU1" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7UJ-E8-pko"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vX6-wx-uKZ" secondAttribute="trailing" constant="20" id="Be5-Hb-Nfv"/>
+                            <constraint firstItem="QMH-a2-tU1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Eal-U6-axA"/>
                             <constraint firstItem="4O3-a3-plx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="J7t-j9-UB2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ObH-EG-Gkc" secondAttribute="trailing" constant="20" id="Oyw-pz-Ix0"/>
                             <constraint firstItem="4O3-a3-plx" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="RVw-QV-dXw"/>
+                            <constraint firstItem="QMH-a2-tU1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ZTy-g6-UCq"/>
+                            <constraint firstItem="vX6-wx-uKZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ejQ-ZT-ca7"/>
+                            <constraint firstItem="4O3-a3-plx" firstAttribute="top" secondItem="ObH-EG-Gkc" secondAttribute="bottom" constant="52" id="h5m-H8-F6N"/>
+                            <constraint firstItem="4O3-a3-plx" firstAttribute="top" secondItem="QMH-a2-tU1" secondAttribute="bottom" id="mnk-p7-72V"/>
+                            <constraint firstItem="vX6-wx-uKZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="52" id="oWn-hf-zs3"/>
                             <constraint firstItem="4O3-a3-plx" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="tgC-1i-w5Z"/>
+                            <constraint firstItem="ObH-EG-Gkc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ud3-0R-Aoy"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomTextField" destination="ObH-EG-Gkc" id="A7V-eQ-uZ0"/>
                         <outlet property="cameraButton" destination="Enp-ty-bFh" id="Fjj-6h-s9j"/>
                         <outlet property="imagePicker" destination="QMH-a2-tU1" id="zcf-en-Cb4"/>
+                        <outlet property="topTextFiled" destination="vX6-wx-uKZ" id="xFY-HD-nvK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
