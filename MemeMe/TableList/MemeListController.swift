@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MemeListController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MemeListController: UITableViewController {
     
     var memes: [Meme]! {
         let object = UIApplication.shared.delegate
@@ -17,14 +17,15 @@ class MemeListController: UIViewController, UITableViewDataSource, UITableViewDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print("Index: \(memes.count)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
         self.navigationController?.isNavigationBarHidden = false
+        
+        // Reload de datasource
+        self.tableView.reloadData()
     }
 
     @IBAction func createNewImage(_ sender: Any) {
@@ -33,21 +34,24 @@ class MemeListController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     // MARK: Data source Table
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.memes.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MemesCell", for: indexPath) as! MemeViewCell
         let meme = self.memes[(indexPath as NSIndexPath).row]
         
         // Set the name and image
-        cell.textLabel?.text = "\(meme.topText)...\(meme.bottomText)"
+        cell.titleLabel?.text = "\(meme.topText)...\(meme.bottomText)"
         cell.imageView?.image = meme.memedImage
                 
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailController = self.storyboard!.instantiateViewController(withIdentifier: "CreateMemeViewController") as! ViewController
+        detailController.meme = self.memes[(indexPath as NSIndexPath).row]
+        self.navigationController!.pushViewController(detailController, animated: true)
     }
 }

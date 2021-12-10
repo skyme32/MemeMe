@@ -13,6 +13,8 @@ import UIKit
 class ViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Properties
+    
+    var meme: Meme!
     let styleTextAttributes: [NSAttributedString.Key: Any] = [
         .strokeColor: UIColor.black,
         .foregroundColor: UIColor.white,
@@ -22,7 +24,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     let TEXT_TOP = "TOP"
     let TEXT_BOTTOM = "BOTTOM"
 
+    
     // MARK: IBOutlet properties
+    
     @IBOutlet weak var imagePicker: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextFiled: UITextField!
@@ -33,12 +37,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     
     // MARK: Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Style textfields and control the camera exist
-        styleTextField(textField: topTextFiled, message: TEXT_TOP)
-        styleTextField(textField: bottomTextField, message: TEXT_BOTTOM)
+        addTextIsEmptyMeme()
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
     }
 
@@ -56,6 +60,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     
     // MARK: Style from TextFields and Delegates
+    
+    func addTextIsEmptyMeme() {
+        if meme == nil {
+            styleTextField(textField: topTextFiled, message: TEXT_TOP)
+            styleTextField(textField: bottomTextField, message: TEXT_BOTTOM)
+        } else {
+            styleTextField(textField: topTextFiled, message: meme.topText)
+            styleTextField(textField: bottomTextField, message: meme.bottomText)
+            self.imagePicker.image = meme.originalImage
+        }
+    }
+    
     func styleTextField(textField: UITextField, message: String) {
         textField.defaultTextAttributes = styleTextAttributes
         textField.textAlignment = .center
@@ -78,6 +94,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
     
     // MARK: Actions Camera/Library & Share/Cancel
+    
     @IBAction func pickAnImage(_ sender: Any) {
         showImagePickerController(sourceType: .photoLibrary)
     }
@@ -91,8 +108,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         activityController.completionWithItemsHandler = { activity, completed, items, error in
             if completed {
                 self.save()
-                let detailController = self.storyboard!.instantiateViewController(withIdentifier: "MemeListController") as! MemeListController
-                self.navigationController!.pushViewController(detailController, animated: true)
+                
+                // Navigation to back
+                _ = self.navigationController?.popViewController(animated: true)
                 self.dismiss(animated: true, completion: nil)
             }
         }
@@ -105,12 +123,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.imagePicker.image = nil
         statuShareButton()
         
-        // Navigation to
-        _ = navigationController?.popViewController(animated: true)
+        // Navigation to back
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
     
     // MARK: Save the image
+    
     func save() {
         // Generated the meme
         let memedImage = generateMemedImage()
@@ -142,15 +161,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     
     // MARK: Status shareButton
+    
     private func statuShareButton() {
         if imagePicker.image == nil {
             shareButton.isEnabled = false
         } else {
-            shareButton.isEnabled = false
+            shareButton.isEnabled = true
         }
     }
     
     // MARK: Status navBar & Toolbar
+    
     private func hideAndShowBars(status: Bool) {
         navBar.isHidden = status
         toolbar.isHidden = status
@@ -159,6 +180,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
 
 // MARK: Control Picker controller
+
 extension ViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     func showImagePickerController(sourceType: UIImagePickerController.SourceType) {
