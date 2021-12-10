@@ -17,7 +17,7 @@
         <!--Edit View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Edit View Controller" id="BYZ-38-t0r" customClass="ViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateMemeViewController" title="Edit View Controller" id="BYZ-38-t0r" customClass="ViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -183,7 +183,11 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Sent Memes" id="bL3-FD-Dkn">
-                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="9cN-Ds-RFG"/>
+                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="9cN-Ds-RFG">
+                            <connections>
+                                <action selector="createNewImage:" destination="EO7-Ei-PQi" id="IEq-lz-6O5"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cbF-zz-vVA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -210,19 +214,28 @@
         <!--Meme Sent List-->
         <scene sceneID="h4m-cb-wxq">
             <objects>
-                <viewController title="Meme Sent List" id="Q3V-q6-xyx" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemeListController" title="Meme Sent List" id="Q3V-q6-xyx" customClass="MemeListController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tKw-Zg-Sok">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="KF9-sV-75g"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Meme Sent" id="Ooo-dJ-VKR">
-                        <barButtonItem key="leftBarButtonItem" title="Edit" id="gUQ-Vz-JWU"/>
-                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="x3o-zx-Tua"/>
+                    <navigationItem key="navigationItem" title="Sent Memes" id="Ooo-dJ-VKR">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="gUQ-Vz-JWU">
+                            <connections>
+                                <action selector="pepe:" destination="cBC-7N-C5L" id="Qnn-YN-gRC"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="x3o-zx-Tua">
+                            <connections>
+                                <action selector="createNewImage:" destination="Q3V-q6-xyx" id="ULA-hQ-lBV"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RUT-KM-EYB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="cBC-7N-C5L" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3006" y="-188"/>
         </scene>

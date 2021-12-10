@@ -22,6 +22,19 @@ class MemeCollectionViewController: UICollectionViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    // MARK: Lifcycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+        self.navigationController?.isNavigationBarHidden = false
+    }
+
+    @IBAction func createNewImage(_ sender: Any) {
+        let detailController = self.storyboard!.instantiateViewController(withIdentifier: "CreateMemeViewController") as! ViewController
+        self.navigationController!.pushViewController(detailController, animated: true)
+    }
 
     // MARK: UICollectionViewDataSource
 

@@ -43,6 +43,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+        self.navigationController?.isNavigationBarHidden = true
         statuShareButton()
         subscribeToKeyboardNotifications()
     }
@@ -88,6 +91,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         activityController.completionWithItemsHandler = { activity, completed, items, error in
             if completed {
                 self.save()
+                let detailController = self.storyboard!.instantiateViewController(withIdentifier: "MemeListController") as! MemeListController
+                self.navigationController!.pushViewController(detailController, animated: true)
                 self.dismiss(animated: true, completion: nil)
             }
         }
