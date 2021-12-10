@@ -104,6 +104,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.bottomTextField.text = TEXT_BOTTOM
         self.imagePicker.image = nil
         statuShareButton()
+        
+        // Navigation to
+        _ = navigationController?.popViewController(animated: true)
     }
     
     
@@ -113,7 +116,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let memedImage = generateMemedImage()
         
         // Create the meme
-        _ = Meme(topText: topTextFiled.text!, bottomText: bottomTextField.text!, originalImage: imagePicker.image!, memedImage: memedImage)
+        let meme = Meme(topText: topTextFiled.text!, bottomText: bottomTextField.text!, originalImage: imagePicker.image!, memedImage: memedImage)
+        
+        // Add it to the memes array in the Application Delegate
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
     }
     
     func generateMemedImage() -> UIImage {
