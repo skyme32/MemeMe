@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		482E56362764A52D00377EDD /* MemeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E56352764A52D00377EDD /* MemeCollectionCell.swift */; };
 		486032E1272E285000774BA7 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486032E0272E285000774BA7 /* Meme.swift */; };
 		486032E3272E295A00774BA7 /* KeyboardUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486032E2272E295A00774BA7 /* KeyboardUtils.swift */; };
 		48E4EF502763B94000F1950D /* MemeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E4EF4F2763B94000F1950D /* MemeCollectionViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		482E56352764A52D00377EDD /* MemeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeCollectionCell.swift; sourceTree = "<group>"; };
 		486032E0272E285000774BA7 /* Meme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 		486032E2272E295A00774BA7 /* KeyboardUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardUtils.swift; sourceTree = "<group>"; };
 		48E4EF4F2763B94000F1950D /* MemeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				48E4EF4F2763B94000F1950D /* MemeCollectionViewController.swift */,
+				482E56352764A52D00377EDD /* MemeCollectionCell.swift */,
 			);
 			path = Collection;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				482E56362764A52D00377EDD /* MemeCollectionCell.swift in Sources */,
 				48FA9147272D893400E7099D /* ViewController.swift in Sources */,
 				48E4EF532763B9E200F1950D /* MemeListController.swift in Sources */,
 				486032E3272E295A00774BA7 /* KeyboardUtils.swift in Sources */,

@@ -173,13 +173,27 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="6HS-mu-Qle">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemeCollectionCell" id="6HS-mu-Qle" customClass="MemeCollectionCell" customModule="MemeMe" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Z53-Gd-n0A">
                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nfB-Qq-hGP">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="nfB-Qq-hGP" secondAttribute="bottom" id="5Q5-m4-raN"/>
+                                        <constraint firstAttribute="trailing" secondItem="nfB-Qq-hGP" secondAttribute="trailing" id="WPp-5N-ngi"/>
+                                        <constraint firstItem="nfB-Qq-hGP" firstAttribute="top" secondItem="Z53-Gd-n0A" secondAttribute="top" id="hl7-kp-bZx"/>
+                                        <constraint firstItem="nfB-Qq-hGP" firstAttribute="leading" secondItem="Z53-Gd-n0A" secondAttribute="leading" id="zpD-R8-emL"/>
+                                    </constraints>
                                 </collectionViewCellContentView>
+                                <connections>
+                                    <outlet property="memeImageView" destination="nfB-Qq-hGP" id="B4E-RR-v09"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -198,7 +212,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cbF-zz-vVA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3006" y="532"/>
+            <point key="canvasLocation" x="3005.7971014492755" y="531.69642857142856"/>
         </scene>
         <!--Navigation List-->
         <scene sceneID="Ml2-eZ-5hN">
