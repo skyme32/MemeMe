@@ -12,6 +12,7 @@ private let reuseIdentifier = "MemeCollectionCell"
 class MemeCollectionViewController: UICollectionViewController {
     
     // MARK: Properties
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
     var memes: [Meme]! {
         let object = UIApplication.shared.delegate
@@ -23,8 +24,14 @@ class MemeCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Register cell classes
-        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        // Do any additional setup after loading the view.
+        let space:CGFloat = 3.0
+        let dimension = (self.view.frame.size.width - (2 * space)) / 3.0
+        flowLayout.minimumInteritemSpacing = space
+        flowLayout.minimumLineSpacing = space
+        flowLayout.itemSize = CGSize(width: dimension, height: dimension)
+        flowLayout.scrollDirection = .vertical
+        collectionView.setCollectionViewLayout(flowLayout, animated: true)
     }
     
     
@@ -46,8 +53,13 @@ class MemeCollectionViewController: UICollectionViewController {
 
     
     // MARK: UICollectionViewDataSource
-
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return memes.count
     }
     
